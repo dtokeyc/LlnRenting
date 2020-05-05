@@ -25,5 +25,20 @@ public class UserController {
         else
             return false;
     }
+    @PostMapping(value = "/issignup" )
+    public Boolean signup(@RequestParam("email") String username,
+                          @RequestParam("password") String password,
+                          @RequestParam("sno") String sno){
+            String sql ="insert into user_main (Email, password,sno) value " +
+                    "( \""+username+"\","+"\""+password+"\","+sno+")";
+            try{
+                jdbcTemplate.update(sql);
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+
+            }
+    }
 
 }
