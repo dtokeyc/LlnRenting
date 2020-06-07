@@ -18,6 +18,7 @@ import java.util.Map;
 
 @RestController
 public class ItemConroller {
+    String img="http://gepfdu.natappfree.cc/img/";
     @Resource
     private JdbcTemplate jdbcTemplate;
     @PostMapping(value = "/publish" )
@@ -55,7 +56,7 @@ public class ItemConroller {
             for(int i=0;i<a.length;i++)
             {
                 JSONObject tp= new JSONObject();
-                tp.put("url",a[i]);
+                tp.put("url",img+a[i]);
                 aj.put(tp);
             }
             jo.put("photos",aj);
@@ -82,7 +83,7 @@ public class ItemConroller {
             try {
                 String s[] =((String)tp.get("photos")).split(";");
                 fk.put("name",tp.get("title"));
-                fk.put("image_url",s[0]);
+                fk.put("image_url",img+s[0]);
                 fk.put("price",tp.get("price"));
                 fk.put("time",tp.get("time"));
                 aj.put(fk);
@@ -113,7 +114,7 @@ public class ItemConroller {
             try {
                 String s[] =((String)tp.get("photos")).split(";");
                 fk.put("name",tp.get("title"));
-                fk.put("image_url",s[0]);
+                fk.put("image_url",img+s[0]);
                 fk.put("price",tp.get("price"));
                 fk.put("time",tp.get("time"));
                 aj.put(fk);
@@ -143,7 +144,7 @@ public class ItemConroller {
             try {
                 String s[] =((String)tp.get("photos")).split(";");
                 fk.put("name",tp.get("title"));
-                fk.put("image_url",s[0]);
+                fk.put("image_url",img+s[0]);
                 fk.put("price",tp.get("price"));
                 fk.put("time",tp.get("time"));
                 aj.put(fk);
@@ -173,7 +174,7 @@ public class ItemConroller {
             try {
                 String s[] =((String)tp.get("photos")).split(";");
                 fk.put("name",tp.get("title"));
-                fk.put("image_url",s[0]);
+                fk.put("image_url",img+s[0]);
                 fk.put("price",tp.get("price"));
                 fk.put("time",tp.get("time"));
                 aj.put(fk);
