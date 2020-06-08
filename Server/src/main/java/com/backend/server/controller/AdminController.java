@@ -9,4 +9,5 @@ import javax.annotation.Resource;
 public class AdminController {
     @Resource
     private JdbcTemplate jdbcTemplate;
+
 }

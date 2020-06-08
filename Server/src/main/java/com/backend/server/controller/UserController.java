@@ -72,7 +72,7 @@ public class UserController {
 
     @PostMapping(value = "/issignup",produces="application/json;charset=UTF-8")
     public String signup(@RequestBody Map params) throws ServerException {
-            String username = (String) params.get("username");
+            String username = (String) params.get("email");
             String password = (String) params.get("password");
             String sno = (String) params.get("sno");
             String sql ="insert into user_main (Email, password,sno) value " +
@@ -82,6 +82,7 @@ public class UserController {
                 jdbcTemplate.update(sql);
                 jo.put("result","success");
             } catch (Exception E) {
+                E.printStackTrace();
                 throw new ServerException("不太行~，如果邮箱没有重复的话，应该是学号被盗用了，请私信我们。");
             }
             return jo.toString();
